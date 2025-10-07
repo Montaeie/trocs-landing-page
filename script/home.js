@@ -242,8 +242,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   ScrollTrigger.create({
     trigger: ".home-spotlight",
-    start: "top top",
-    end: `+=${window.innerHeight * 7}px`,
+    start: isMobile ? "top bottom" : "top top",
+    end: isMobile ? "bottom top" : `+=${window.innerHeight * 7}px`,
     pin: !isMobile,
     pinSpacing: !isMobile,
     scrub: 1,
@@ -338,8 +338,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   ScrollTrigger.create({
     trigger: ".outro",
-    start: "top top",
-    end: `+=${window.innerHeight * 3}px`,
+    start: isMobile ? "top bottom" : "top top",
+    end: isMobile ? "bottom top" : `+=${window.innerHeight * 3}px`,
     pin: !isMobile,
     pinSpacing: !isMobile,
     scrub: 1,
