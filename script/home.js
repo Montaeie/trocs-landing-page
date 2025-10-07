@@ -238,12 +238,14 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.set(headerSplit.words, { opacity: 0 });
   }
 
+  const isMobile = window.innerWidth <= 1000;
+
   ScrollTrigger.create({
     trigger: ".home-spotlight",
     start: "top top",
     end: `+=${window.innerHeight * 7}px`,
-    pin: true,
-    pinSpacing: true,
+    pin: !isMobile,
+    pinSpacing: !isMobile,
     scrub: 1,
     onUpdate: (self) => {
       const progress = self.progress;
@@ -338,8 +340,8 @@ document.addEventListener("DOMContentLoaded", () => {
     trigger: ".outro",
     start: "top top",
     end: `+=${window.innerHeight * 3}px`,
-    pin: true,
-    pinSpacing: true,
+    pin: !isMobile,
+    pinSpacing: !isMobile,
     scrub: 1,
     onUpdate: (self) => {
       const progress = self.progress;
