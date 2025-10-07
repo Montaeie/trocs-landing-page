@@ -240,26 +240,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const isMobile = window.innerWidth <= 1000;
 
+  // Capture initial viewport height before address bar hides
+  const initialVH = window.innerHeight;
+
   // On mobile, prevent ScrollTrigger from refreshing on resize
   if (isMobile) {
     ScrollTrigger.config({
       autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
       ignoreMobileResize: true
     });
+
+    // Lock all pinned sections to initial viewport height
+    document.querySelectorAll('.home-spotlight, .outro').forEach(section => {
+      section.style.height = `${initialVH}px`;
+      section.style.minHeight = `${initialVH}px`;
+    });
+
+    // Disable ScrollTrigger refresh on mobile resize completely
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        // Don't refresh ScrollTrigger on mobile
+      }, 250);
+    });
   }
 
   ScrollTrigger.create({
     trigger: ".home-spotlight",
-    start: isMobile ? "top 70%" : "top top",
-    end: isMobile ? "bottom 30%" : `+=${window.innerHeight * 7}px`,
-    pin: !isMobile,
-    pinSpacing: !isMobile,
+    start: "top top",
+    end: `+=${initialVH * (isMobile ? 4 : 7)}px`,
+    pin: true,
+    pinSpacing: true,
     scrub: 1,
     invalidateOnRefresh: false,
+    anticipatePin: isMobile ? 0 : 1,
     onUpdate: (self) => {
       const progress = self.progress;
 
-      if (!isMobile && progress <= 0.5) {
+      if (progress <= 0.5) {
         const animationProgress = progress / 0.5;
 
         const startY = 5;
@@ -278,12 +297,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const maskImage = document.querySelector(".spotlight-mask-image");
 
       if (maskContainer && maskImage) {
-        const maskStart = isMobile ? 0 : 0.25;
-        const maskEnd = isMobile ? 1 : 0.75;
-
-        if (progress >= maskStart && progress <= maskEnd) {
-          const maskProgress = (progress - maskStart) / (maskEnd - maskStart);
-          const maskSize = `${maskProgress * (isMobile ? 200 : 475)}%`;
+        if (progress >= 0.25 && progress <= 0.75) {
+          const maskProgress = (progress - 0.25) / 0.5;
+          const maskSize = `${maskProgress * 475}%`;
 
           const imageScale = 1.25 - maskProgress * 0.25;
 
@@ -293,16 +309,16 @@ document.addEventListener("DOMContentLoaded", () => {
           gsap.set(maskImage, {
             scale: imageScale,
           });
-        } else if (progress < maskStart) {
+        } else if (progress < 0.25) {
           maskContainer.style.setProperty("-webkit-mask-size", "0%");
           maskContainer.style.setProperty("mask-size", "0%");
 
           gsap.set(maskImage, {
             scale: 1.25,
           });
-        } else if (progress > maskEnd) {
-          maskContainer.style.setProperty("-webkit-mask-size", isMobile ? "200%" : "475%");
-          maskContainer.style.setProperty("mask-size", isMobile ? "200%" : "475%");
+        } else if (progress > 0.75) {
+          maskContainer.style.setProperty("-webkit-mask-size", "475%");
+          maskContainer.style.setProperty("mask-size", "475%");
 
           gsap.set(maskImage, {
             scale: 1,
@@ -311,11 +327,8 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       if (headerSplit && headerSplit.words.length > 0) {
-        const textStart = isMobile ? 0.5 : 0.75;
-        const textEnd = isMobile ? 1 : 0.95;
-
-        if (progress >= textStart && progress <= textEnd) {
-          const textProgress = (progress - textStart) / (textEnd - textStart);
+        if (progress >= 0.75 && progress <= 0.95) {
+          const textProgress = (progress - 0.75) / 0.2;
           const totalWords = headerSplit.words.length;
 
           headerSplit.words.forEach((word, index) => {
@@ -327,9 +340,9 @@ document.addEventListener("DOMContentLoaded", () => {
               gsap.set(word, { opacity: 0 });
             }
           });
-        } else if (progress < textStart) {
+        } else if (progress < 0.75) {
           gsap.set(headerSplit.words, { opacity: 0 });
-        } else if (progress > textEnd) {
+        } else if (progress > 0.95) {
           gsap.set(headerSplit.words, { opacity: 1 });
         }
       }
@@ -353,21 +366,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   ScrollTrigger.create({
     trigger: ".outro",
-    start: isMobile ? "top 70%" : "top top",
-    end: isMobile ? "bottom 30%" : `+=${window.innerHeight * 3}px`,
-    pin: !isMobile,
-    pinSpacing: !isMobile,
+    start: "top top",
+    end: `+=${initialVH * (isMobile ? 3 : 3)}px`,
+    pin: true,
+    pinSpacing: true,
     scrub: 1,
     invalidateOnRefresh: false,
+    anticipatePin: isMobile ? 0 : 1,
     onUpdate: (self) => {
       const progress = self.progress;
 
       if (outroSplit && outroSplit.words.length > 0) {
-        const textStart = isMobile ? 0.2 : 0.25;
-        const textEnd = isMobile ? 0.8 : 0.75;
-
-        if (progress >= textStart && progress <= textEnd) {
-          const textProgress = (progress - textStart) / (textEnd - textStart);
+        if (progress >= 0.25 && progress <= 0.75) {
+          const textProgress = (progress - 0.25) / 0.5;
           const totalWords = outroSplit.words.length;
 
           outroSplit.words.forEach((word, index) => {
@@ -379,9 +390,9 @@ document.addEventListener("DOMContentLoaded", () => {
               gsap.set(word, { opacity: 0 });
             }
           });
-        } else if (progress < textStart) {
+        } else if (progress < 0.25) {
           gsap.set(outroSplit.words, { opacity: 0 });
-        } else if (progress > textEnd) {
+        } else if (progress > 0.75) {
           gsap.set(outroSplit.words, { opacity: 1 });
         }
       }
@@ -390,8 +401,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   ScrollTrigger.create({
     trigger: ".outro",
-    start: isMobile ? "top bottom" : "top bottom",
-    end: isMobile ? "bottom top" : `+=${window.innerHeight * 6}px`,
+    start: "top bottom",
+    end: `+=${initialVH * 6}px`,
     scrub: 1,
     onUpdate: (self) => {
       const progress = self.progress;
@@ -399,7 +410,7 @@ document.addEventListener("DOMContentLoaded", () => {
       outroStrips.forEach((strip, index) => {
         if (stripSpeeds[index] !== undefined) {
           const speed = stripSpeeds[index];
-          const movement = progress * 100 * speed * (isMobile ? 0.5 : 1);
+          const movement = progress * 100 * speed;
 
           gsap.set(strip, {
             x: `${movement}%`,
