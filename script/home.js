@@ -240,9 +240,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const isMobile = window.innerWidth <= 1000;
 
-  // Capture initial viewport height before address bar hides
-  const initialVH = window.innerHeight;
-
   // On mobile, prevent ScrollTrigger from refreshing on resize
   if (isMobile) {
     ScrollTrigger.config({
@@ -250,33 +247,45 @@ document.addEventListener("DOMContentLoaded", () => {
       ignoreMobileResize: true
     });
 
-    // Lock all pinned sections to initial viewport height
-    document.querySelectorAll('.home-spotlight, .outro').forEach(section => {
-      section.style.height = `${initialVH}px`;
-      section.style.minHeight = `${initialVH}px`;
-    });
+    // Insert spacers for fixed positioning on mobile
+    const spotlight = document.querySelector('.home-spotlight');
+    const outro = document.querySelector('.outro');
 
-    // Disable ScrollTrigger refresh on mobile resize completely
-    let resizeTimer;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimer);
-      resizeTimer = setTimeout(() => {
-        // Don't refresh ScrollTrigger on mobile
-      }, 250);
-    });
+    if (spotlight && !document.querySelector('.home-spotlight-spacer')) {
+      const spacer = document.createElement('div');
+      spacer.className = 'home-spotlight-spacer';
+      spotlight.parentNode.insertBefore(spacer, spotlight);
+    }
+
+    if (outro && !document.querySelector('.outro-spacer')) {
+      const spacer = document.createElement('div');
+      spacer.className = 'outro-spacer';
+      outro.parentNode.insertBefore(spacer, outro);
+    }
   }
 
   ScrollTrigger.create({
-    trigger: ".home-spotlight",
+    trigger: isMobile ? ".home-spotlight-spacer" : ".home-spotlight",
     start: "top top",
-    end: `+=${initialVH * (isMobile ? 4 : 7)}px`,
-    pin: true,
-    pinSpacing: true,
+    end: isMobile ? "bottom bottom" : `+=${window.innerHeight * 7}px`,
+    pin: !isMobile ? ".home-spotlight" : false,
+    pinSpacing: !isMobile,
     scrub: 1,
     invalidateOnRefresh: false,
-    anticipatePin: isMobile ? 0 : 1,
     onUpdate: (self) => {
       const progress = self.progress;
+
+      // Show/hide section on mobile based on progress
+      if (isMobile) {
+        const spotlight = document.querySelector('.home-spotlight');
+        if (progress > 0 && progress < 1) {
+          spotlight.style.visibility = 'visible';
+          spotlight.style.opacity = '1';
+        } else {
+          spotlight.style.visibility = 'hidden';
+          spotlight.style.opacity = '0';
+        }
+      }
 
       if (progress <= 0.5) {
         const animationProgress = progress / 0.5;
@@ -365,16 +374,27 @@ document.addEventListener("DOMContentLoaded", () => {
   const stripSpeeds = [0.3, 0.4, 0.25, 0.35, 0.2, 0.25];
 
   ScrollTrigger.create({
-    trigger: ".outro",
+    trigger: isMobile ? ".outro-spacer" : ".outro",
     start: "top top",
-    end: `+=${initialVH * (isMobile ? 3 : 3)}px`,
-    pin: true,
-    pinSpacing: true,
+    end: isMobile ? "bottom bottom" : `+=${window.innerHeight * 3}px`,
+    pin: !isMobile ? ".outro" : false,
+    pinSpacing: !isMobile,
     scrub: 1,
     invalidateOnRefresh: false,
-    anticipatePin: isMobile ? 0 : 1,
     onUpdate: (self) => {
       const progress = self.progress;
+
+      // Show/hide section on mobile based on progress
+      if (isMobile) {
+        const outro = document.querySelector('.outro');
+        if (progress > 0 && progress < 1) {
+          outro.style.visibility = 'visible';
+          outro.style.opacity = '1';
+        } else {
+          outro.style.visibility = 'hidden';
+          outro.style.opacity = '0';
+        }
+      }
 
       if (outroSplit && outroSplit.words.length > 0) {
         if (progress >= 0.25 && progress <= 0.75) {
@@ -400,9 +420,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   ScrollTrigger.create({
-    trigger: ".outro",
+    trigger: isMobile ? ".outro-spacer" : ".outro",
     start: "top bottom",
-    end: `+=${initialVH * 6}px`,
+    end: isMobile ? "bottom top" : `+=${window.innerHeight * 6}px`,
     scrub: 1,
     onUpdate: (self) => {
       const progress = self.progress;

@@ -662,6 +662,26 @@
     height: 100svh;
   }
 
+  .home-spotlight,
+  .outro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    will-change: transform;
+  }
+
+  .home-spotlight-spacer {
+    height: 500vh;
+    pointer-events: none;
+  }
+
+  .outro-spacer {
+    height: 400vh;
+    pointer-events: none;
+  }
+
   .hero .hero-content .hero-header h1 {
     font-size: 22.5vw;
   }
