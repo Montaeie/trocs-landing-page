@@ -174,6 +174,59 @@
   padding: 1.5rem;
 }
 
+/* Cards with background images */
+.home-about-card.card-with-bg {
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 300px;
+  border: none;
+}
+
+.home-about-card.card-bg-1 {
+  background-image: url('/trocs/1200x680.jpeg');
+}
+
+.home-about-card.card-bg-2 {
+  background-image: url('/trocs/objets-troc-cas-crise-1024x576.jpg');
+}
+
+.home-about-card.card-bg-3 {
+  background-image: url('/trocs/IMG_6624.jpeg');
+}
+
+.home-about-card.card-bg-4 {
+  background-image: url('/trocs/troc-outils-multifonction.png.webp');
+}
+
+.home-about-card .card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.home-about-card .card-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.home-about-card.card-with-bg p.mono,
+.home-about-card.card-with-bg h4 {
+  color: var(--base-100);
+}
+
 .home-about .home-about-card p.mono {
   color: var(--base-secondary-dark);
 }
@@ -340,7 +393,16 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.home-services .card-copy h3 {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  text-align: center;
+  color: var(--base-300);
 }
 
 .home-services .card-copy p {
@@ -753,5 +815,52 @@
   .home-services .flip-card-back {
     transform: none !important;
     position: relative;
+  }
+}
+
+/* App Store & Play Store badges */
+.hero-app-badges {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+  align-items: center;
+}
+
+.hero-app-badges .app-badge {
+  display: block;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  opacity: 0.9;
+}
+
+.hero-app-badges .app-badge:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+.hero-app-badges .app-badge img {
+  height: 50px;
+  width: auto;
+  display: block;
+}
+
+@media (max-width: 1000px) {
+  .hero-app-badges {
+    margin-top: 1.5rem;
+  }
+
+  .hero-app-badges .app-badge img {
+    height: 40px;
+  }
+}
+
+@media (max-width: 500px) {
+  .hero-app-badges {
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+  }
+
+  .hero-app-badges .app-badge img {
+    height: 35px;
   }
 }

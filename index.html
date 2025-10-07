@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Juno Watts | MWT July 2025 | Codegrid</title>
+    <title>TROCS - Échange tes objets avec tes voisins | Application de troc gratuite</title>
+    <meta name="description" content="Trouve ce dont tu as besoin en échangeant avec tes voisins. Pas d'argent, juste du troc. Télécharge TROCS et commence à échanger gratuitement." />
     <link rel="icon" href="/global/site-icon.png" />
     <link rel="stylesheet" href="/globals.css" />
     <link rel="stylesheet" href="/css/transition.css" />
@@ -23,7 +24,7 @@
 
     <nav class="menu">
       <div class="menu-header">
-        <a href="#" class="menu-logo"><img src="/global/logo.png" alt="" /></a>
+        <a href="/" class="menu-logo"><img src="/global/logo.png" alt="TROCS" /></a>
         <button class="menu-toggle" aria-label="Toggle menu">
           <div class="menu menu-hamburger-icon">
             <span class="menu-item"></span>
@@ -32,26 +33,17 @@
         </button>
       </div>
       <div class="menu-overlay">
-        <nav class="menu-nav">
-          <ul>
-            <li><a href="/">Index</a></li>
-            <li><a href="/about">The Dev</a></li>
-            <li><a href="/work">Cool Stuff</a></li>
-            <li><a href="/project">Log 01</a></li>
-            <li><a href="/contact">Ping Me</a></li>
-          </ul>
-        </nav>
         <div class="menu-footer">
           <div class="menu-social">
             <a href="#"><span>&#9654;</span> Instagram</a>
-            <a href="#"><span>&#9654;</span> LinkedIn</a>
+            <a href="#"><span>&#9654;</span> TikTok</a>
           </div>
-          <div class="menu-time">23:24:02 NY</div>
+          <div class="menu-time">Bientôt disponible</div>
         </div>
       </div>
     </nav>
 
-    <section class="hero">
+    <section class="hero" id="hero">
       <div class="home-services-top-bar">
         <div class="container">
           <div class="symbols-container">
@@ -70,7 +62,7 @@
         <div class="hero-content">
           <div class="hero-header">
             <h1 data-animate-type="reveal" data-animate-delay="0.25">
-              Juno Watts
+              TROCS
             </h1>
           </div>
           <div class="hero-footer">
@@ -80,10 +72,7 @@
                 data-animate-type="line-reveal"
                 data-animate-delay="0.25"
               >
-                Juno Watts builds websites with the focus of a final boss fight
-                and the flair of your favorite anime opening. Every build starts
-                with a solid plan and ends with a clean launch. No filler
-                episodes.
+                Échange tes objets avec tes voisins. Sans argent. Juste du bon sens.
               </p>
             </div>
             <div class="hero-footer-tags">
@@ -92,15 +81,23 @@
                 data-animate-type="scramble"
                 data-animate-delay="0.5"
               >
-                <span>&#9654;</span> Interface Alchemy
+                <span>&#9654;</span> Bientôt sur iOS et Android
               </p>
               <p
                 class="mono"
                 data-animate-type="scramble"
                 data-animate-delay="0.5"
               >
-                <span>&#9654;</span> Scroll Sorcery
+                <span>&#9654;</span> 100% Gratuit
               </p>
+            </div>
+            <div class="hero-app-badges">
+              <a href="#" class="app-badge" aria-label="Télécharger sur l'App Store">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Télécharger sur l'App Store" />
+              </a>
+              <a href="#" class="app-badge" aria-label="Disponible sur Google Play">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Disponible sur Google Play" />
+              </a>
             </div>
           </div>
         </div>
@@ -108,36 +105,36 @@
           <div class="card" id="hero-card-1">
             <div class="hero-card-inner">
               <div class="card-title">
-                <p class="mono">Plan</p>
+                <p class="mono">Publie</p>
                 <p class="mono">01</p>
               </div>
               <div class="card-title">
                 <p class="mono">01</p>
-                <p class="mono">Plan</p>
+                <p class="mono">Publie</p>
               </div>
             </div>
           </div>
           <div class="card" id="hero-card-2">
             <div class="hero-card-inner">
               <div class="card-title">
-                <p class="mono">Design</p>
+                <p class="mono">Matche</p>
                 <p class="mono">02</p>
               </div>
               <div class="card-title">
                 <p class="mono">02</p>
-                <p class="mono">Design</p>
+                <p class="mono">Matche</p>
               </div>
             </div>
           </div>
           <div class="card" id="hero-card-3">
             <div class="hero-card-inner">
               <div class="card-title">
-                <p class="mono">Develop</p>
+                <p class="mono">Échange</p>
                 <p class="mono">03</p>
               </div>
               <div class="card-title">
                 <p class="mono">03</p>
-                <p class="mono">Develop</p>
+                <p class="mono">Échange</p>
               </div>
             </div>
           </div>
@@ -145,7 +142,7 @@
       </div>
     </section>
 
-    <section class="home-about">
+    <section class="home-about" id="probleme">
       <div class="container">
         <div class="home-about-col">
           <div class="symbols-container">
@@ -160,98 +157,110 @@
               data-animate-delay="0.2"
               data-animate-on-scroll="true"
             >
-              <span>&#9654;</span> Skillset
+              <span>&#9654;</span> On le sait tous...
             </p>
             <h3
               data-animate-type="line-reveal"
               data-animate-delay="0.2"
               data-animate-on-scroll="true"
             >
-              Stuff I’ve leveled up so you don’t have to
+              T'as besoin d'une perceuse pour un week-end ? Tu vas dépenser 80€ pour l'utiliser 20 minutes
             </h3>
           </div>
         </div>
         <div class="home-about-col">
           <div class="home-about-col-row">
-            <div class="home-about-card">
-              <p
-                class="mono"
-                data-animate-type="scramble"
-                data-animate-delay="0.2"
-                data-animate-on-scroll="true"
-              >
-                [ Move 01 ]
-              </p>
-              <h4
-                data-animate-type="line-reveal"
-                data-animate-delay="0.2"
-                data-animate-on-scroll="true"
-              >
-                Strategy
-              </h4>
+            <div class="home-about-card card-with-bg card-bg-1">
+              <div class="card-overlay"></div>
+              <div class="card-content">
+                <p
+                  class="mono"
+                  data-animate-type="scramble"
+                  data-animate-delay="0.2"
+                  data-animate-on-scroll="true"
+                >
+                  💸
+                </p>
+                <h4
+                  data-animate-type="line-reveal"
+                  data-animate-delay="0.2"
+                  data-animate-on-scroll="true"
+                >
+                  Tout coûte de plus en plus cher
+                </h4>
+              </div>
             </div>
-            <div class="home-about-card">
-              <p
-                class="mono"
-                data-animate-type="scramble"
-                data-animate-delay="0.25"
-                data-animate-on-scroll="true"
-              >
-                [ Move 02 ]
-              </p>
-              <h4
-                data-animate-type="line-reveal"
-                data-animate-delay="0.25"
-                data-animate-on-scroll="true"
-              >
-                Wireframing
-              </h4>
+            <div class="home-about-card card-with-bg card-bg-2">
+              <div class="card-overlay"></div>
+              <div class="card-content">
+                <p
+                  class="mono"
+                  data-animate-type="scramble"
+                  data-animate-delay="0.25"
+                  data-animate-on-scroll="true"
+                >
+                  🗑️
+                </p>
+                <h4
+                  data-animate-type="line-reveal"
+                  data-animate-delay="0.25"
+                  data-animate-on-scroll="true"
+                >
+                  On achète pour jeter 3 mois après
+                </h4>
+              </div>
             </div>
           </div>
           <div class="home-about-col-row">
-            <div class="home-about-card">
-              <p
-                class="mono"
-                data-animate-type="scramble"
-                data-animate-delay="0.3"
-                data-animate-on-scroll="true"
-              >
-                [ Move 03 ]
-              </p>
-              <h4
-                data-animate-type="line-reveal"
-                data-animate-delay="0.3"
-                data-animate-on-scroll="true"
-              >
-                Branding
-              </h4>
+            <div class="home-about-card card-with-bg card-bg-3">
+              <div class="card-overlay"></div>
+              <div class="card-content">
+                <p
+                  class="mono"
+                  data-animate-type="scramble"
+                  data-animate-delay="0.3"
+                  data-animate-on-scroll="true"
+                >
+                  😔
+                </p>
+                <h4
+                  data-animate-type="line-reveal"
+                  data-animate-delay="0.3"
+                  data-animate-on-scroll="true"
+                >
+                  On connaît pas nos voisins
+                </h4>
+              </div>
             </div>
-            <div class="home-about-card">
-              <p
-                class="mono"
-                data-animate-type="scramble"
-                data-animate-delay="0.35"
-                data-animate-on-scroll="true"
-              >
-                [ Move 04 ]
-              </p>
-              <h4
-                data-animate-type="line-reveal"
-                data-animate-delay="0.35"
-                data-animate-on-scroll="true"
-              >
-                Dev
-              </h4>
+            <div class="home-about-card card-with-bg card-bg-4">
+              <div class="card-overlay"></div>
+              <div class="card-content">
+                <p
+                  class="mono"
+                  data-animate-type="scramble"
+                  data-animate-delay="0.35"
+                  data-animate-on-scroll="true"
+                >
+                  📦
+                </p>
+                <h4
+                  data-animate-type="line-reveal"
+                  data-animate-delay="0.35"
+                  data-animate-on-scroll="true"
+                >
+                  Pendant ce temps, ton voisin en a une qui prend la poussière
+                </h4>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="home-services">
+    <section class="home-services" id="solution">
       <div class="container">
         <div class="home-services-header">
-          <p class="md">Equipped and ready for scroll battles</p>
+          <p class="md">Et si on revenait à l'essentiel ?</p>
         </div>
       </div>
       <div class="home-services-top-bar">
@@ -282,7 +291,7 @@
             data-animate-delay="0.2"
             data-animate-on-scroll="true"
           >
-            <span>&#9654;</span> Deployed abilities
+            <span>&#9654;</span> Le troc en 3 étapes
           </p>
           <p
             class="mono"
@@ -290,7 +299,7 @@
             data-animate-delay="0.25"
             data-animate-on-scroll="true"
           >
-            [ Stats synced: 2025 ]
+            [ Simple et efficace ]
           </p>
         </div>
       </div>
@@ -301,30 +310,25 @@
               <div class="flip-card-inner">
                 <div class="flip-card-front">
                   <div class="card-title">
-                    <p class="mono">Plan</p>
+                    <p class="mono">Publie</p>
                     <p class="mono">01</p>
                   </div>
                   <div class="card-title">
                     <p class="mono">01</p>
-                    <p class="mono">Plan</p>
+                    <p class="mono">Publie</p>
                   </div>
                 </div>
                 <div class="flip-card-back">
                   <div class="card-title">
-                    <p class="mono">Plan</p>
+                    <p class="mono">Publie</p>
                     <p class="mono">01</p>
                   </div>
                   <div class="card-copy">
-                    <p>Discovery</p>
-                    <p>Audit</p>
-                    <p>User Flow</p>
-                    <p>Site Map</p>
-                    <p>Personas</p>
-                    <p>Strategy</p>
+                    <h3>Tu as besoin de quelque chose ? Hop, tu publies sur TROCS</h3>
                   </div>
                   <div class="card-title">
                     <p class="mono">01</p>
-                    <p class="mono">Plan</p>
+                    <p class="mono">Publie</p>
                   </div>
                 </div>
               </div>
@@ -335,30 +339,25 @@
               <div class="flip-card-inner">
                 <div class="flip-card-front">
                   <div class="card-title">
-                    <p class="mono">Design</p>
+                    <p class="mono">Matche</p>
                     <p class="mono">02</p>
                   </div>
                   <div class="card-title">
                     <p class="mono">02</p>
-                    <p class="mono">Design</p>
+                    <p class="mono">Matche</p>
                   </div>
                 </div>
                 <div class="flip-card-back">
                   <div class="card-title">
-                    <p class="mono">Design</p>
+                    <p class="mono">Matche</p>
                     <p class="mono">02</p>
                   </div>
                   <div class="card-copy">
-                    <p>Wireframes</p>
-                    <p>UI Kits</p>
-                    <p>Prototypes</p>
-                    <p>Visual Style</p>
-                    <p>Interaction</p>
-                    <p>Design QA</p>
+                    <h3>Quelqu'un près de chez toi a ce qu'il te faut ? Il te contacte</h3>
                   </div>
                   <div class="card-title">
                     <p class="mono">02</p>
-                    <p class="mono">Design</p>
+                    <p class="mono">Matche</p>
                   </div>
                 </div>
               </div>
@@ -369,30 +368,25 @@
               <div class="flip-card-inner">
                 <div class="flip-card-front">
                   <div class="card-title">
-                    <p class="mono">Develop</p>
+                    <p class="mono">Échange</p>
                     <p class="mono">03</p>
                   </div>
                   <div class="card-title">
                     <p class="mono">03</p>
-                    <p class="mono">Develop</p>
+                    <p class="mono">Échange</p>
                   </div>
                 </div>
                 <div class="flip-card-back">
                   <div class="card-title">
-                    <p class="mono">Develop</p>
+                    <p class="mono">Échange</p>
                     <p class="mono">03</p>
                   </div>
                   <div class="card-copy">
-                    <p>HTML/CSS/JS</p>
-                    <p>CMS Build</p>
-                    <p>GSAP Motion</p>
-                    <p>Responsive</p>
-                    <p>Optimization</p>
-                    <p>Launch</p>
+                    <h3>Vous vous rencontrez, vous échangez, vous discutez. Tout le monde est content</h3>
                   </div>
                   <div class="card-title">
                     <p class="mono">03</p>
-                    <p class="mono">Develop</p>
+                    <p class="mono">Échange</p>
                   </div>
                 </div>
               </div>
@@ -402,7 +396,7 @@
       </div>
     </section>
 
-    <section class="home-spotlight">
+    <section class="home-spotlight" id="benefices">
       <div class="home-spotlight-top-bar">
         <div class="container">
           <div class="symbols-container">
@@ -437,7 +431,7 @@
             data-animate-delay="0.2"
             data-animate-on-scroll="true"
           >
-            <span>&#9654;</span> Visual logs
+            <span>&#9654;</span> Pourquoi tu vas adorer TROCS
           </p>
           <p
             class="mono"
@@ -445,7 +439,7 @@
             data-animate-delay="0.25"
             data-animate-on-scroll="true"
           >
-            / Portfolio Arc
+            / Les avantages concrets
           </p>
         </div>
       </div>
@@ -456,7 +450,7 @@
             data-animate-delay="0.3"
             data-animate-on-scroll="true"
           >
-            Trends shout but Juno whispers
+            💰 Tu économises vraiment • 🌍 Tu fais un geste pour la planète • 🤝 Tu rencontres tes voisins
           </h3>
         </div>
       </div>
@@ -464,113 +458,113 @@
         <div class="home-spotlight-images-row">
           <div class="home-spotlight-image"></div>
           <div class="home-spotlight-image image-holder">
-            <img src="/spotlight-images/spotlight-img-1.jpg" alt="" />
+            <img src="/trocs/echange dobjest.jpg" alt="Échange d'objets" />
           </div>
           <div class="home-spotlight-image"></div>
           <div class="home-spotlight-image image-holder">
-            <img src="/spotlight-images/spotlight-img-2.jpg" alt="" />
+            <img src="/trocs/troc-outils-multifonction.png.webp" alt="Outils multifonction" />
           </div>
         </div>
         <div class="home-spotlight-images-row">
           <div class="home-spotlight-image image-holder">
-            <img src="/spotlight-images/spotlight-img-3.jpg" alt="" />
+            <img src="/trocs/troc-nourriture.png.webp" alt="Troc nourriture" />
           </div>
           <div class="home-spotlight-image"></div>
           <div class="home-spotlight-image"></div>
-          <div class="home-spotlight-image"></div>
-        </div>
-        <div class="home-spotlight-images-row">
-          <div class="home-spotlight-image"></div>
-          <div class="home-spotlight-image image-holder">
-            <img src="/spotlight-images/spotlight-img-4.jpg" alt="" />
-          </div>
-          <div class="home-spotlight-image image-holder">
-            <img src="/spotlight-images/spotlight-img-5.jpg" alt="" />
-          </div>
           <div class="home-spotlight-image"></div>
         </div>
         <div class="home-spotlight-images-row">
           <div class="home-spotlight-image"></div>
           <div class="home-spotlight-image image-holder">
-            <img src="/spotlight-images/spotlight-img-6.jpg" alt="" />
+            <img src="/trocs/stock-troc-hygiene.png.webp" alt="Produits d'hygiène" />
+          </div>
+          <div class="home-spotlight-image image-holder">
+            <img src="/trocs/stock-troc-medicament.png.webp" alt="Médicaments" />
+          </div>
+          <div class="home-spotlight-image"></div>
+        </div>
+        <div class="home-spotlight-images-row">
+          <div class="home-spotlight-image"></div>
+          <div class="home-spotlight-image image-holder">
+            <img src="/trocs/objets-troc-cas-crise-1024x576.jpg" alt="Objets à troquer" />
           </div>
           <div class="home-spotlight-image"></div>
           <div class="home-spotlight-image image-holder">
-            <img src="/spotlight-images/spotlight-img-7.jpg" alt="" />
+            <img src="/trocs/stock-troc-energie-gaz-feu.png.webp" alt="Énergie et gaz" />
           </div>
         </div>
         <div class="home-spotlight-images-row">
           <div class="home-spotlight-image image-holder">
-            <img src="/spotlight-images/spotlight-img-8.jpg" alt="" />
+            <img src="/trocs/IMG_6624.jpeg" alt="Troc communautaire" />
           </div>
           <div class="home-spotlight-image"></div>
           <div class="home-spotlight-image image-holder">
-            <img src="/spotlight-images/spotlight-img-9.jpg" alt="" />
+            <img src="/trocs/troc_1178317870.webp" alt="Échange entre voisins" />
           </div>
           <div class="home-spotlight-image"></div>
         </div>
       </div>
       <div class="spotlight-mask-image-container">
         <div class="spotlight-mask-image">
-          <img src="/spotlight-images/spotlight-banner.jpg" alt="" />
+          <img src="/trocs/1200x680.jpeg" alt="TROCS - L'app de troc entre voisins" />
         </div>
         <div class="container">
           <div class="spotlight-mask-header">
-            <h3>Built This Face with Flexbox</h3>
+            <h3>Pas d'argent, juste du troc</h3>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="outro">
+    <section class="outro" id="temoignages">
       <div class="container">
-        <h3>Scroll ends but ideas don’t</h3>
+        <h3>Ils ont déjà troqué (dans la vraie vie)</h3>
       </div>
       <div class="outro-strips">
         <div class="outro-strip os-1">
-          <div class="skill skill-var-1"><p class="mono">Frontend</p></div>
-          <div class="skill skill-var-2"><p class="mono">UX</p></div>
-          <div class="skill skill-var-3"><p class="mono">Vibe Check</p></div>
-          <div class="skill skill-var-1"><p class="mono">Clean Code</p></div>
-          <div class="skill skill-var-3"><p class="mono">Creative Flow</p></div>
-          <div class="skill skill-var-1"><p class="mono">Pixel Logic</p></div>
+          <div class="skill skill-var-1"><p class="mono">💰 Économies</p></div>
+          <div class="skill skill-var-2"><p class="mono">🤝 Lien social</p></div>
+          <div class="skill skill-var-3"><p class="mono">🌍 Écologie</p></div>
+          <div class="skill skill-var-1"><p class="mono">📍 Proximité</p></div>
+          <div class="skill skill-var-3"><p class="mono">⚡ Rapidité</p></div>
+          <div class="skill skill-var-1"><p class="mono">💬 Échanges</p></div>
         </div>
         <div class="outro-strip os-2">
-          <div class="skill skill-var-2"><p class="mono">Motion</p></div>
-          <div class="skill skill-var-3"><p class="mono">Taste</p></div>
-          <div class="skill skill-var-1"><p class="mono">Grid Game</p></div>
+          <div class="skill skill-var-2"><p class="mono">👍 Confiance</p></div>
+          <div class="skill skill-var-3"><p class="mono">🎁 Générosité</p></div>
+          <div class="skill skill-var-1"><p class="mono">🔄 Seconde vie</p></div>
         </div>
         <div class="outro-strip os-3">
-          <div class="skill skill-var-2"><p class="mono">Details</p></div>
-          <div class="skill skill-var-3"><p class="mono">Toronto Core</p></div>
-          <div class="skill skill-var-1"><p class="mono">Builds</p></div>
-          <div class="skill skill-var-2"><p class="mono">Case Studies</p></div>
-          <div class="skill skill-var-3"><p class="mono">Scroll Love</p></div>
-          <div class="skill skill-var-3"><p class="mono">Easings</p></div>
-          <div class="skill skill-var-1"><p class="mono">HTML Mindset</p></div>
+          <div class="skill skill-var-2"><p class="mono">Léa, 23 ans</p></div>
+          <div class="skill skill-var-3"><p class="mono">Robe contre cours</p></div>
+          <div class="skill skill-var-1"><p class="mono">Nouvelle amie</p></div>
+          <div class="skill skill-var-2"><p class="mono">Sophie, 36 ans</p></div>
+          <div class="skill skill-var-3"><p class="mono">Vêtements enfants</p></div>
+          <div class="skill skill-var-3"><p class="mono">Tous les 6 mois</p></div>
+          <div class="skill skill-var-1"><p class="mono">Zéro centime</p></div>
         </div>
         <div class="outro-strip os-4">
-          <div class="skill skill-var-1"><p class="mono">Type Systems</p></div>
-          <div class="skill skill-var-2"><p class="mono">Keyframes</p></div>
+          <div class="skill skill-var-1"><p class="mono">Marc, 54 ans</p></div>
+          <div class="skill skill-var-2"><p class="mono">Photo vintage</p></div>
           <div class="skill skill-var-3">
-            <p class="mono">Component Life</p>
+            <p class="mono">Bières ensemble</p>
           </div>
         </div>
         <div class="outro-strip os-5">
-          <div class="skill skill-var-1"><p class="mono">Side Projects</p></div>
-          <div class="skill skill-var-2"><p class="mono">Studio Vibes</p></div>
-          <div class="skill skill-var-3"><p class="mono">GSAP Fanboy</p></div>
-          <div class="skill skill-var-1"><p class="mono">No Filler</p></div>
-          <div class="skill skill-var-2"><p class="mono">Live Sites</p></div>
-          <div class="skill skill-var-3"><p class="mono">Canada Mode</p></div>
-          <div class="skill skill-var-1"><p class="mono">Launch Ready</p></div>
-          <div class="skill skill-var-2"><p class="mono">CodegridPRO</p></div>
+          <div class="skill skill-var-1"><p class="mono">100% gratuit</p></div>
+          <div class="skill skill-var-2"><p class="mono">Local d'abord</p></div>
+          <div class="skill skill-var-3"><p class="mono">Sans argent</p></div>
+          <div class="skill skill-var-1"><p class="mono">Authentique</p></div>
+          <div class="skill skill-var-2"><p class="mono">Simple</p></div>
+          <div class="skill skill-var-3"><p class="mono">Sécurisé</p></div>
+          <div class="skill skill-var-1"><p class="mono">Convivial</p></div>
+          <div class="skill skill-var-2"><p class="mono">Bientôt dispo</p></div>
         </div>
         <div class="outro-strip os-6">
-          <div class="skill skill-var-3"><p class="mono">UI Nerd</p></div>
-          <div class="skill skill-var-1"><p class="mono">Quietly Bold</p></div>
-          <div class="skill skill-var-2"><p class="mono">Shipped</p></div>
-          <div class="skill skill-var-3"><p class="mono">Real CSS</p></div>
+          <div class="skill skill-var-3"><p class="mono">iOS & Android</p></div>
+          <div class="skill skill-var-1"><p class="mono">Hauts-de-France</p></div>
+          <div class="skill skill-var-2"><p class="mono">Puis toute la France</p></div>
+          <div class="skill skill-var-3"><p class="mono">TROCS</p></div>
         </div>
       </div>
     </section>
@@ -579,13 +573,19 @@
       <div class="container">
         <div class="footer-top">
           <div class="footer-col">
-            <p class="mono"><span>&#9654;</span> Drop your email if you vibe</p>
+            <p class="mono"><span>&#9654;</span> Prêt à commencer à troquer ?</p>
+            <h3>Laisse ton email, on te prévient dès qu'on lance l'application</h3>
             <div class="footer-email-container">
               <div class="footer-email-row">
-                <input type="text" placeholder="your@email.com" />
-                <button>
-                  <img src="/global/footer-right-arrow.png" alt="" />
+                <input type="email" id="email-input" placeholder="ton@email.com" required />
+                <button id="email-submit">
+                  <img src="/global/footer-right-arrow.png" alt="Envoyer" />
                 </button>
+              </div>
+              <div class="footer-email-benefits">
+                <p class="mono">✅ Pas de spam, promis</p>
+                <p class="mono">✅ Tu seras alerté en premier du lancement</p>
+                <p class="mono">✅ Bonus : des TrocCoins offerts 🎁</p>
               </div>
             </div>
           </div>
@@ -594,42 +594,34 @@
         <div class="footer-bottom">
           <div class="footer-col">
             <div class="footer-logo">
-              <img src="/global/logo.png" alt="" />
+              <img src="/global/logo.png" alt="TROCS Logo" />
             </div>
+            <p class="mono" style="margin-top: 1rem;">TROCS - L'app qui réinvente l'échange</p>
           </div>
           <div class="footer-col">
             <div class="footer-sub-col">
-              <p class="mono">Explore</p>
-              <div class="footer-links">
-                <p><a href="/">Start Here</a></p>
-                <p><a href="/about">Who’s Juno</a></p>
-                <p><a href="/work">The Cool Work</a></p>
-                <p><a href="/project">Single Project</a></p>
-                <p><a href="/contact">Slide Into Inbox</a></p>
-              </div>
-            </div>
-            <div class="footer-sub-col">
-              <p class="mono">Stalk Me</p>
+              <p class="mono">Rejoins-nous</p>
               <div class="footer-copy">
-                <p>Unit 7, The Pixel Building</p>
-                <p>Z Street, Amsterdam</p>
+                <p>📧 contact@trocetpuce.com</p>
+                <p>📱 Bientôt sur iOS et Android</p>
                 <br />
-                <p>LinkedIn</p>
-                <p>Twitter</p>
+                <p><a href="#">Instagram</a></p>
+                <p><a href="#">TikTok</a></p>
+                <p><a href="#">Telegram</a></p>
               </div>
             </div>
           </div>
         </div>
         <div class="footer-copyright">
           <div class="footer-col">
-            <p class="mono">MWT July 2025</p>
+            <p class="mono">Fait avec ❤️ à Roubaix</p>
           </div>
           <div class="footer-col">
             <div class="footer-sub-col">
-              <p class="mono">Made by Codegrid</p>
+              <p class="mono"><a href="/mentions-legales">Mentions légales</a> | <a href="/politique-confidentialite">Politique de confidentialité</a></p>
             </div>
             <div class="footer-sub-col">
-              <p class="mono">&copy; 2025 All Rights Reserved</p>
+              <p class="mono">&copy; 2025 TROCS. Tous droits réservés.</p>
             </div>
           </div>
         </div>
@@ -640,5 +632,6 @@
     <script type="module" src="/script/transition.js"></script>
     <script type="module" src="/script/menu.js"></script>
     <script type="module" src="/script/home.js"></script>
+    <script type="module" src="/script/email-form.js"></script>
   </body>
 </html>

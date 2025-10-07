@@ -2,9 +2,7 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/about", "destination": "/about.html" },
-    { "source": "/work", "destination": "/work.html" },
-    { "source": "/project", "destination": "/project.html" },
-    { "source": "/contact", "destination": "/contact.html" }
+    { "source": "/mentions-legales", "destination": "/mentions-legales.html" },
+    { "source": "/politique-confidentialite", "destination": "/politique-confidentialite.html" }
   ]
 }
