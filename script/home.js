@@ -240,54 +240,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const isMobile = window.innerWidth <= 1000;
 
-  // On mobile, prevent ScrollTrigger from refreshing on resize
-  if (isMobile) {
-    ScrollTrigger.config({
-      autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
-      ignoreMobileResize: true
-    });
-
-    // Insert spacers for fixed positioning on mobile
-    const spotlight = document.querySelector('.home-spotlight');
-    const outro = document.querySelector('.outro');
-
-    if (spotlight && !document.querySelector('.home-spotlight-spacer')) {
-      const spacer = document.createElement('div');
-      spacer.className = 'home-spotlight-spacer';
-      spotlight.parentNode.insertBefore(spacer, spotlight);
-    }
-
-    if (outro && !document.querySelector('.outro-spacer')) {
-      const spacer = document.createElement('div');
-      spacer.className = 'outro-spacer';
-      outro.parentNode.insertBefore(spacer, outro);
-    }
-  }
-
   ScrollTrigger.create({
-    trigger: isMobile ? ".home-spotlight-spacer" : ".home-spotlight",
-    start: "top top",
-    end: isMobile ? "bottom bottom" : `+=${window.innerHeight * 7}px`,
-    pin: !isMobile ? ".home-spotlight" : false,
+    trigger: ".home-spotlight",
+    start: isMobile ? "top bottom" : "top top",
+    end: isMobile ? "bottom top" : `+=${window.innerHeight * 7}px`,
+    pin: !isMobile,
     pinSpacing: !isMobile,
     scrub: 1,
-    invalidateOnRefresh: false,
     onUpdate: (self) => {
       const progress = self.progress;
 
-      // Show/hide section on mobile based on progress
-      if (isMobile) {
-        const spotlight = document.querySelector('.home-spotlight');
-        if (progress > 0 && progress < 1) {
-          spotlight.style.visibility = 'visible';
-          spotlight.style.opacity = '1';
-        } else {
-          spotlight.style.visibility = 'hidden';
-          spotlight.style.opacity = '0';
-        }
-      }
-
-      if (progress <= 0.5) {
+      if (!isMobile && progress <= 0.5) {
         const animationProgress = progress / 0.5;
 
         const startY = 5;
@@ -374,27 +337,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const stripSpeeds = [0.3, 0.4, 0.25, 0.35, 0.2, 0.25];
 
   ScrollTrigger.create({
-    trigger: isMobile ? ".outro-spacer" : ".outro",
-    start: "top top",
-    end: isMobile ? "bottom bottom" : `+=${window.innerHeight * 3}px`,
-    pin: !isMobile ? ".outro" : false,
+    trigger: ".outro",
+    start: isMobile ? "top bottom" : "top top",
+    end: isMobile ? "bottom top" : `+=${window.innerHeight * 3}px`,
+    pin: !isMobile,
     pinSpacing: !isMobile,
     scrub: 1,
-    invalidateOnRefresh: false,
     onUpdate: (self) => {
       const progress = self.progress;
-
-      // Show/hide section on mobile based on progress
-      if (isMobile) {
-        const outro = document.querySelector('.outro');
-        if (progress > 0 && progress < 1) {
-          outro.style.visibility = 'visible';
-          outro.style.opacity = '1';
-        } else {
-          outro.style.visibility = 'hidden';
-          outro.style.opacity = '0';
-        }
-      }
 
       if (outroSplit && outroSplit.words.length > 0) {
         if (progress >= 0.25 && progress <= 0.75) {
@@ -420,9 +370,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   ScrollTrigger.create({
-    trigger: isMobile ? ".outro-spacer" : ".outro",
+    trigger: ".outro",
     start: "top bottom",
-    end: isMobile ? "bottom top" : `+=${window.innerHeight * 6}px`,
+    end: `+=${window.innerHeight * 6}px`,
     scrub: 1,
     onUpdate: (self) => {
       const progress = self.progress;
