@@ -250,11 +250,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   ScrollTrigger.create({
     trigger: ".home-spotlight",
-    start: isMobile ? "top 80%" : "top top",
-    end: isMobile ? "bottom 20%" : `+=${window.innerHeight * 7}px`,
-    pin: !isMobile,
-    pinSpacing: !isMobile,
-    scrub: 1,
+    start: "top top",
+    end: `+=${window.innerHeight * (isMobile ? 10 : 7)}px`,
+    pin: true,
+    pinSpacing: true,
+    scrub: isMobile ? 2 : 1,
     invalidateOnRefresh: false,
     onUpdate: (self) => {
       const progress = self.progress;
@@ -347,11 +347,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   ScrollTrigger.create({
     trigger: ".outro",
-    start: isMobile ? "top 80%" : "top top",
-    end: isMobile ? "bottom 20%" : `+=${window.innerHeight * 3}px`,
-    pin: !isMobile,
-    pinSpacing: !isMobile,
-    scrub: 1,
+    start: "top top",
+    end: `+=${window.innerHeight * (isMobile ? 6 : 3)}px`,
+    pin: true,
+    pinSpacing: true,
+    scrub: isMobile ? 2 : 1,
     invalidateOnRefresh: false,
     onUpdate: (self) => {
       const progress = self.progress;
