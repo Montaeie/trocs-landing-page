@@ -5,37 +5,29 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 document.addEventListener("DOMContentLoaded", () => {
   let isMobile = window.innerWidth <= 900;
 
-  const scrollSettings = isMobile
-    ? {
-        duration: 0.8,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: "vertical",
-        gestureDirection: "vertical",
-        smooth: false,
-        smoothTouch: false,
-        touchMultiplier: 1,
-        infinite: false,
-        lerp: 0.09,
-        wheelMultiplier: 1,
-        orientation: "vertical",
-        smoothWheel: false,
-        syncTouch: false,
-      }
-    : {
-        duration: 1.2,
-        easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-        direction: "vertical",
-        gestureDirection: "vertical",
-        smooth: true,
-        smoothTouch: false,
-        touchMultiplier: 2,
-        infinite: false,
-        lerp: 0.1,
-        wheelMultiplier: 1,
-        orientation: "vertical",
-        smoothWheel: true,
-        syncTouch: true,
-      };
+  if (isMobile) {
+    // On mobile, use native scroll with ScrollTrigger only
+    ScrollTrigger.config({
+      autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"
+    });
+    return;
+  }
+
+  const scrollSettings = {
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    direction: "vertical",
+    gestureDirection: "vertical",
+    smooth: true,
+    smoothTouch: false,
+    touchMultiplier: 2,
+    infinite: false,
+    lerp: 0.1,
+    wheelMultiplier: 1,
+    orientation: "vertical",
+    smoothWheel: true,
+    syncTouch: true,
+  };
 
   let lenis = new Lenis(scrollSettings);
 
@@ -52,42 +44,8 @@ document.addEventListener("DOMContentLoaded", () => {
     isMobile = window.innerWidth <= 900;
 
     if (wasMobile !== isMobile) {
-      lenis.destroy();
-
-      const newScrollSettings = isMobile
-        ? {
-            duration: 1,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            direction: "vertical",
-            gestureDirection: "vertical",
-            smooth: false,
-            smoothTouch: false,
-            touchMultiplier: 1,
-            infinite: false,
-            lerp: 0.05,
-            wheelMultiplier: 1,
-            orientation: "vertical",
-            smoothWheel: false,
-            syncTouch: false,
-          }
-        : {
-            duration: 1.2,
-            easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-            direction: "vertical",
-            gestureDirection: "vertical",
-            smooth: true,
-            smoothTouch: false,
-            touchMultiplier: 2,
-            infinite: false,
-            lerp: 0.1,
-            wheelMultiplier: 1,
-            orientation: "vertical",
-            smoothWheel: true,
-            syncTouch: true,
-          };
-
-      lenis = new Lenis(newScrollSettings);
-      lenis.on("scroll", ScrollTrigger.update);
+      // If switching from desktop to mobile or vice versa, reload the page
+      window.location.reload();
     }
   };
 

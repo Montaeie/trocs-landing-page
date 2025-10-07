@@ -240,6 +240,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const isMobile = window.innerWidth <= 1000;
 
+  // On mobile, prevent ScrollTrigger from refreshing on resize
+  if (isMobile) {
+    ScrollTrigger.config({
+      autoRefreshEvents: "visibilitychange,DOMContentLoaded,load",
+      ignoreMobileResize: true
+    });
+  }
+
   ScrollTrigger.create({
     trigger: ".home-spotlight",
     start: "top top",
@@ -247,6 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pin: true,
     pinSpacing: true,
     scrub: 1,
+    invalidateOnRefresh: false,
     onUpdate: (self) => {
       const progress = self.progress;
 
@@ -343,6 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
     pin: true,
     pinSpacing: true,
     scrub: 1,
+    invalidateOnRefresh: false,
     onUpdate: (self) => {
       const progress = self.progress;
 
