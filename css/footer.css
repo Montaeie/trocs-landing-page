@@ -143,6 +143,18 @@ footer a {
   color: var(--base-100);
 }
 
+.footer-made-by {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-logo-small {
+  height: 30px;
+  width: auto;
+  opacity: 0.9;
+}
+
 @media (max-width: 1000px) {
   footer {
     height: max-content;
